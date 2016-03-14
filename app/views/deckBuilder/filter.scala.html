@@ -1,0 +1,284 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Name</label>
+        <div class="col-sm-11">
+            <div class="row">
+                <div class="col-sm-5">
+                    <input type="text" data-ng-model="ctrl.filter.name" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">
+            Class
+        </label>
+        <div class="col-sm-11">
+            <div class="btn-group">
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="'all'">
+                    All
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_DRUID">
+                    Druid
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_HUNTER">
+                    Hunter
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_MAGE">
+                    Mage
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_PALADIN">
+                    Paladin
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_PRIEST">
+                    Priest
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_ROGUE">
+                    Rogue
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_SHAMAN">
+                    Shaman
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_WARLOCK">
+                    Warlock
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.classSelector"
+                    data-uib-btn-radio="@Card.CLASS_WARRIOR">
+                    Warrior
+                </label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.neutral"
+                    data-uib-btn-checkbox>
+                    Neutral
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">
+            Type
+        </label>
+        <div class="col-sm-11">
+            <div class="btn-group">
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minion"
+                    data-uib-btn-checkbox>
+                    Minion
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.spell"
+                    data-uib-btn-checkbox>
+                    Spell
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.weapon"
+                    data-uib-btn-checkbox>
+                    Weapon
+                </label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="'all'">
+                    All
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_BEAST">
+                    Beast
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_DEMON">
+                    Demon
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_DRAGON">
+                    Dragon
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_MECH">
+                    Mech
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_MURLOC">
+                    Murloc
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_PIRATE">
+                    Pirate
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.typeSelector.minionType"
+                    data-uib-btn-radio="@Card.RACE_TOTEM">
+                    Totem
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">
+            Effect
+        </label>
+        <div class="col-sm-11">
+            <div class="row">
+                <div class="col-sm-5">
+                    <select data-ng-model="ctrl.filter.effectSelector" class="form-control">
+                        <option selected="selected" value="none">None</option>
+                        <option value="aura">Aura</option>
+                        <option value="battleCry">Battle Cry</option>
+                        <option value="charge">Charge</option>
+                        <option value="combo">Combo</option>
+                        <option value="deathRattle">Death Rattle</option>
+                        <option value="divineShield">Divine Shield</option>
+                        <option value="enrage">Enrage</option>
+                        <option value="freeze">Freeze</option>
+                        <option value="inspire">Inspire</option>
+                        <option value="ogre">Ogre</option>
+                        <option value="overload">Overload</option>
+                        <option value="poison">Poison</option>
+                        <option value="secret">Secret</option>
+                        <option value="spellpower">Spellpower</option>
+                        <option value="stealth">Stealth</option>
+                        <option value="taunt">Taunt</option>
+                        <option value="windfury">Windfury</option>
+                    </select>
+                </div>
+            </div>
+
+            @*<div class="btn-group">*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.battleCry"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Battle Cry*@
+                @*</label>*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.deathRattle"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Death Rattle*@
+                @*</label>*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.charge"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Charge*@
+                @*</label>*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.divineShield"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Divine Shield*@
+                @*</label>*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.stealth"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Stealth*@
+                @*</label>*@
+                @*<label class="btn btn-default"*@
+                    @*data-ng-model="ctrl.filter.effectSelector.taunt"*@
+                    @*data-uib-btn-checkbox>*@
+                    @*Taunt*@
+                @*</label>*@
+            @*</div>*@
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">
+            Rarity
+        </label>
+        <div class="col-sm-11">
+            <div class="btn-group">
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.raritySelector.free"
+                    data-uib-btn-checkbox>
+                    Free
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.raritySelector.common"
+                    data-uib-btn-checkbox>
+                    Common
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.raritySelector.rare"
+                    data-uib-btn-checkbox>
+                    Rare
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.raritySelector.epic"
+                    data-uib-btn-checkbox>
+                    Epic
+                </label>
+                <label class="btn btn-default"
+                    data-ng-model="ctrl.filter.raritySelector.legendary"
+                    data-uib-btn-checkbox>
+                    Legendary
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-1 control-label">
+            Stats
+        </label>
+        <div class="col-md-9">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label for="cost-min" class="col-md-4 control-label">Cost</label>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="cost-min" placeholder="Min" maxlength="2">
+                        </div>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="cost-max" placeholder="Max" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label for="attack-min" class="col-md-4 control-label">Attack</label>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="attack-min" placeholder="Min" maxlength="2">
+                        </div>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="attack-max" placeholder="Max" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label for="health-min" class="col-md-4 control-label">Health</label>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="health-min" placeholder="Min" maxlength="2">
+                        </div>
+                        <div class="col-md-4 reduced-padding">
+                            <input type="integer" class="form-control" id="health-max" placeholder="Max" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Session
+GET     /login                      controllers.SessionController.login()
+POST    /login                      controllers.SessionController.authenticate()
+GET     /logout                     controllers.SessionController.logout()
+
+#Dashboard
+GET     /                           controllers.DashboardController.index()
+
+# Decks
+GET     /decks                      controllers.DeckController.list()
+GET     /decks/create               controllers.DeckController.create()
+POST    /decks/save                 controllers.DeckController.save()
+
+# DeckBuilder
+GET     /deck-builder/get-cards     controllers.DeckBuilderController.getCards()
+GET     /deck-builder/:deckId       controllers.DeckBuilderController.index(deckId: Integer)
+GET     /deck-builder/:deckId/load-deck     controllers.DeckBuilderController.loadDeck(deckId: Integer)
+POST    /deck-builder/:deckId/save-deck     controllers.DeckBuilderController.saveDeck(deckId: Integer)
+
+# Imports
+GET     /importCards                controllers.ImportController.importFromHearthstoneApi()
+GET     /importFixtures             controllers.ImportController.importFixtures()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /webjars/*file              controllers.WebJarAssets.at(file)

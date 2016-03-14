@@ -1,0 +1,79 @@
+@(user: User, deckId: Integer)
+
+@main("DeckBuilder", user) {
+
+<div data-deck-builder data-deck-id=@deckId>
+    <div class="deck-builder-top">
+        <div class="row" id="topbar">
+            <div class="col-sm-7" id="filter">
+                @deckBuilder.filter()
+            </div>
+            <div class="col-sm-5" id="chart">
+                <canvas id="bar" class="chart chart-bar" height="290" width="580"
+                    data-chart-data="ctrl.chart.data" data-chart-labels="ctrl.chart.labels" data-chart-series="ctrl.chart.series" data-chart-options="ctrl.chart.options">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="deck-builder-body">
+        <div class="row" id="content">
+            <div class="col-sm-9" id="cards">
+                <div class="scrollable-body">
+                    <table class="table table-striped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Class</th>
+                                <th>Stats</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="card in ctrl.getFilteredCards() track by card.id"
+                                data-ng-dblclick="ctrl.deck.addCard(card.id)"
+                                data-ng-class="{
+                                    danger: !ctrl.deck.isAllowed(card),
+                                    success: card.qualityId == 4 ? ctrl.deck.first.hasOwnProperty(card.id) : ctrl.deck.second.hasOwnProperty(card.id),
+                                    info: card.qualityId == 4 ? false : ctrl.deck.first.hasOwnProperty(card.id) && !ctrl.deck.second.hasOwnProperty(card.id)
+                                }"
+                                class="clickable">
+                                <td>{{ card.id }}</td>
+                                <td>{{ card.name }}</td>
+                                <td data-ng-bind-html="card.description | sanitize"></td>
+                                <td>{{ card.classString }}</td>
+                                <td data-ng-show="card.type == 'Spell'">{{ card.cost }} : /</td>
+                                <td data-ng-hide="card.type == 'Spell'">{{ card.cost }} : {{ card.attack }} / {{ card.life }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-3" id="deck">
+                <div>
+                    <div class="scrollable-body">
+                        <table class="table table-striped table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Stats</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="card in ctrl.deck.first track by card.id" data-ng-dblclick="ctrl.deck.removeCard(card.id)"  class="clickable">
+                                    <td>{{ ctrl.deck.getAmount(card.id) }} {{ card.name }}</td>
+                                    <td data-ng-show="card.type == 'Spell'">{{ card.cost }} : /</td>
+                                    <td data-ng-hide="card.type == 'Spell'">{{ card.cost }} : {{ card.attack }} / {{ card.life }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            Class: {{ ctrl.deck.getClass() | class }}, Size: {{ ctrl.deck.getSize() }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

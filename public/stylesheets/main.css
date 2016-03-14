@@ -1,0 +1,18 @@
+div.col-md-4.reduced-padding {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden
+}
+
+.scrollable-body {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}

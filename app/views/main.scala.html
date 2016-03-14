@@ -1,0 +1,18 @@
+@(title: String, user: User, navigation: Boolean = true)(content: Html)
+
+<!DOCTYPE html>
+
+<html data-ng-app="app" lang="en">
+    <head>
+        <title>@title</title>
+        @includes.assets()
+    </head>
+    <body>
+        <div class="container-fluid">
+            @if(navigation) {
+                @includes.navigation(user)
+            }
+            @content
+        </div>
+    </body>
+</html>

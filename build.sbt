@@ -1,4 +1,4 @@
-name := """play-test"""
+name := """hs-deck-hub"""
 
 version := "1.0-SNAPSHOT"
 

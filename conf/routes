@@ -12,8 +12,11 @@ GET     /                           controllers.DashboardController.index()
 
 # Decks
 GET     /decks                      controllers.DeckController.list()
+GET     /decks/:deckId              controllers.DeckController.detail(deckId: Integer)
 GET     /decks/create               controllers.DeckController.create()
-POST    /decks/save                 controllers.DeckController.save()
+GET     /decks/edit/:deckId         controllers.DeckController.edit(deckId: Integer)
+POST    /decks/create/save          controllers.DeckController.save()
+POST    /decks/edit/save            controllers.DeckController.saveEdit()
 
 # DeckBuilder
 GET     /deck-builder/get-cards     controllers.DeckBuilderController.getCards()

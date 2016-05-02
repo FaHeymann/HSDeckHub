@@ -17,6 +17,7 @@ public class User extends Model {
     public String email;
 
     public String name;
+
     public String password;
 
     @OneToMany(mappedBy = "user")

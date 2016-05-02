@@ -1,0 +1,33 @@
+@(user: User, deck: Deck)
+
+@main(deck.name, user) {
+
+<h2>@deck.name</h2>
+<p>@deck.description</p>
+<p>Public:
+    @if(deck.isPublic) {
+        <i class="fa fa-check text-success"></i>
+    } else {
+        <i class="fa fa-times text-danger"></i>
+    }
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(card <- deck.first) {
+            <tr>
+                <td>@if(deck.second.contains(card)){2 }@card.getName()</td>
+                <td>@card.getDescription()</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+}

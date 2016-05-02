@@ -19,6 +19,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Public</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,7 +29,16 @@
                 <td>@deck.id</td>
                 <td>@deck.name</td>
                 <td>@deck.description</td>
-                <td><a class="btn btn-xs btn-primary" href="@routes.DeckBuilderController.index(deck.id)">Open</a></td>
+                @if(deck.isPublic) {
+                    <td><i class="fa fa-check text-success" /></td>
+                } else {
+                    <td><i class="fa fa-times text-danger" /></td>
+                }
+                <td>
+                    <a class="btn btn-xs btn-success" href="@routes.DeckController.detail(deck.id)">View</a>
+                    <a class="btn btn-xs btn-primary" href="@routes.DeckController.edit(deck.id)">Edit</a>
+                    <a class="btn btn-xs btn-warning" href="@routes.DeckBuilderController.index(deck.id)">Edit content</a>
+                </td>
             </tr>
         }
         </tbody>

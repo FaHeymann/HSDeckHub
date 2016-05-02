@@ -18,11 +18,15 @@ public class Deck extends Model {
     @NotNull
     public String name;
 
-    public String description;
+    @NotNull
+    public String description = "";
 
     @NotNull
     @ManyToOne
     public User user;
+
+    @NotNull
+    public Boolean isPublic = true;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="card_deck_first")
@@ -67,5 +71,18 @@ public class Deck extends Model {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public String getClassString() {
+        for(Card card : this.first) {
+            if(Card.CLASS_NEUTRAL != card.getClassId()) {
+                return card.getClassString();
+            }
+        }
+        return Card.getClassString(Card.CLASS_NEUTRAL);
     }
 }

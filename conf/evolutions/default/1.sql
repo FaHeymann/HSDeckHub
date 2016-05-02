@@ -37,8 +37,9 @@ create table card (
 create table deck (
   id                        integer auto_increment not null,
   name                      varchar(255) not null,
-  description               varchar(255),
+  description               varchar(255) not null,
   user_id                   integer not null,
+  is_public                 tinyint(1) default 0 not null,
   constraint pk_deck primary key (id))
 ;
 

@@ -85,4 +85,18 @@ public class Deck extends Model {
         }
         return Card.getClassString(Card.CLASS_NEUTRAL);
     }
+
+    public Integer getClassId() {
+        for(Card card : this.first) {
+            if(Card.CLASS_NEUTRAL != card.getClassId()) {
+                return card.getClassId();
+            }
+        }
+        return Card.CLASS_NEUTRAL;
+    }
+
+    public String getCSSTextColorClass()
+    {
+        return "text-" + this.getClassString().toLowerCase();
+    }
 }

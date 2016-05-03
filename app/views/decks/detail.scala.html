@@ -4,6 +4,7 @@
 
 <h2>@deck.name</h2>
 <p>@deck.description</p>
+<p>Class: <span class='@deck.getCSSTextColorClass()'>@deck.getClassString()</span></p>
 <p>Public:
     @if(deck.isPublic) {
         <i class="fa fa-check text-success"></i>
@@ -23,7 +24,7 @@
         @for(card <- deck.first) {
             <tr>
                 <td>@if(deck.second.contains(card)){2 }@card.getName()</td>
-                <td>@card.getDescription()</td>
+                <td>@Html(card.getDescription())</td>
             </tr>
 
         }

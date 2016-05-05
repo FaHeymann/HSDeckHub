@@ -29,6 +29,16 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="type" class="col-sm-2 control-label">Type</label>
+                    <div class="col-sm-10">
+                        <select id="type" class="form-control" name="type">
+                            @for(deckType <- models.Deck.Type.values()) {
+                                <option value="@deckType">@deckType.name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <div class="checkbox">
                             <label>

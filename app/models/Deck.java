@@ -2,6 +2,7 @@ package models;
 
 
 import com.avaje.ebean.Model;
+import com.avaje.ebean.annotation.EnumValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,6 +28,9 @@ public class Deck extends Model {
 
     @NotNull
     public Boolean isPublic = true;
+
+    @NotNull
+    public Type type;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="card_deck_first")
@@ -77,6 +81,14 @@ public class Deck extends Model {
         this.isPublic = isPublic;
     }
 
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
     public String getClassString() {
         for(Card card : this.first) {
             if(Card.CLASS_NEUTRAL != card.getClassId()) {
@@ -98,5 +110,30 @@ public class Deck extends Model {
     public String getCSSTextColorClass()
     {
         return "text-" + this.getClassString().toLowerCase();
+    }
+
+    public enum Type {
+        @EnumValue("None")
+        NONE ("None"),
+        @EnumValue("Aggro")
+        AGGRO ("Aggro"),
+        @EnumValue("AggroControl")
+        AGGROCONTROL ("Aggro-Control"),
+        @EnumValue("Tempo")
+        TEMPO ("Tempo"),
+        @EnumValue("Midrange")
+        MIDRANGE ("Midrange"),
+        @EnumValue("Control")
+        CONTROL ("Control"),
+        @EnumValue("Ramp")
+        RAMP ("Ramp"),
+        @EnumValue("Combo")
+        COMBO ("Combo");
+
+        public String name;
+
+        Type(String name) {
+            this.name = name;
+        }
     }
 }

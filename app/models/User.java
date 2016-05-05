@@ -3,7 +3,10 @@ package models;
 import javax.persistence.*;
 
 import com.avaje.ebean.Model;
+import helpers.PasswordHelper;
+import org.mindrot.jbcrypt.BCrypt;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Entity
@@ -11,7 +14,7 @@ public class User extends Model {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    protected Integer id;
+    public Integer id;
 
     @Column(unique=true)
     public String email;
@@ -26,12 +29,21 @@ public class User extends Model {
     public User(String email, String name, String password) {
         this.email = email;
         this.name = name;
-        this.password = password;
+        this.setPassword(password);
+    }
+
+    public void setPassword(String password) {
+        try {
+            this.password = PasswordHelper.createPassword(password);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static User authenticate(String email, String password) {
-        return find.where().eq("email", email)
-                .eq("password", password).findUnique();
+        User user = find.where().eq("email", email).findUnique();
+        return PasswordHelper.checkPassword(password, user.password) ? user : null;
     }
 
     public static Finder<Integer, User> find = new Finder<Integer, User>(User.class);

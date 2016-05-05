@@ -40,6 +40,8 @@ create table deck (
   description               varchar(255) not null,
   user_id                   integer not null,
   is_public                 tinyint(1) default 0 not null,
+  type                      varchar(12) not null,
+  constraint ck_deck_type check (type in ('Ramp','Midrange','Aggro','Tempo','Combo','None','AggroControl','Control')),
   constraint pk_deck primary key (id))
 ;
 

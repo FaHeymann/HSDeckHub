@@ -5,15 +5,21 @@
 # Session
 GET     /login                      controllers.SessionController.login()
 POST    /login                      controllers.SessionController.authenticate()
+GET     /register                   controllers.SessionController.registrationForm()
+POST    /register                   controllers.SessionController.register()
 GET     /logout                     controllers.SessionController.logout()
 
 #Dashboard
 GET     /                           controllers.DashboardController.index()
 
+#Users
+GET     /users/:userId              controllers.UserController.index(userId: Integer)
+
 # Decks
-GET     /decks                      controllers.DeckController.list()
-GET     /decks/:deckId              controllers.DeckController.detail(deckId: Integer)
+GET     /decks                      controllers.DeckController.all()
+GET     /decks/my                   controllers.DeckController.list()
 GET     /decks/create               controllers.DeckController.create()
+GET     /decks/:deckId              controllers.DeckController.detail(deckId: Integer)
 GET     /decks/edit/:deckId         controllers.DeckController.edit(deckId: Integer)
 POST    /decks/create/save          controllers.DeckController.save()
 POST    /decks/edit/save            controllers.DeckController.saveEdit()

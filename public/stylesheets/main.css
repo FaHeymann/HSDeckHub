@@ -3,18 +3,44 @@ div.col-md-4.reduced-padding {
     padding-right: 7px;
 }
 
-html, body {
-    height: 100%;
-    overflow: hidden
+.deck-builder-container {
 }
 
-.scrollable-body {
-    max-height: 500px;
-    overflow-y: auto;
+.deck-builder-top {
+	position: fixed;
+	padding-top: 10px;
+	left: 0;
+	top: 0;
+	background-color: white;
+	z-index: 1;
+	border-bottom: 1px solid;
+}
+
+.deck-builder-body {
+	margin-top: 320px;
+	width: 70%;
+}
+
+.deck-builder-right {
+	position: fixed;
+	right: 0;
+	top: 320px;
+	width: 30%;
+	overflow: scroll;
+	height: calc(100vh-320px);
 }
 
 .clickable {
     cursor: pointer;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .text-rogue {

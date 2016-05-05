@@ -18,6 +18,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "angular-chart.js" % "0.8.8",
   "org.webjars" % "angular-ui-bootstrap" % "1.2.1",
   "org.webjars" % "requirejs" % "2.1.22",
+  "org.webjars" % "font-awesome" % "4.6.1",
   "com.googlecode.json-simple" % "json-simple" % "1.1",
   "org.mindrot" % "jbcrypt" % "0.3m"
 )
